@@ -15,8 +15,9 @@
 // Main函数
 void main(void) {
     Timer0_Init(); // 初始化定时器0
-    while (1) {
+    while (1)
+    {
         Key_Scan(); // 按键扫描
-        Update_Display(); // 更新数码管显示
+        Update_Display(); // 更新显示
     }
 }

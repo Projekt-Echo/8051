@@ -56,4 +56,5 @@ void Update_Display(void) {
     display(2, 10); // 显示分隔符 "-"
     display(1, seconds / 10);
     display(0, seconds % 10);
+    UART_Send(running);
 }

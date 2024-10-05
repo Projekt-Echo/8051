@@ -18,3 +18,9 @@ extern unsigned char seconds;
 extern unsigned char minutes;
 extern unsigned char hours;
 extern unsigned char running;
+
+
+// Debug
+extern void UART_Init(void);
+extern void UART_Send(unsigned char d);
+extern unsigned char UART_Receive(void);

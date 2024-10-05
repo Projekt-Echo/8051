@@ -32,18 +32,24 @@ void Timer0_ISR(void) __interrupt(1) {
     timer_count++;
     if (timer_count >= 1000) { // 每1000次中断（约1秒）刷新一次显示
         timer_count = 0; // 重置计数器
-        seconds++;
-        if (seconds == 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes == 60) {
-                minutes = 0;
-                hours++;
-                if (hours == 24) {
-                    hours = 0;
+        if (running ==1)
+        {
+           seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
+                    if (hours == 24) {
+                        hours = 0;
+                    }
                 }
-            }
+            } 
+
         }
+        
+        
     }
 }
 
