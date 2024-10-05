@@ -47,9 +47,7 @@ void Timer0_ISR(void) __interrupt(1) {
                 }
             } 
 
-        }
-        
-        
+        }     
     }
 }
 

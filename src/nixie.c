@@ -35,7 +35,7 @@ void display(int position, int number) {
         default: P0 = 0x00; break; // 默认清除显示 
     }
 
-    delay(1); // 延时1ms
+    delay_0_1ms(17);
     // 清除数码管位置相关的引脚 - 消影的一部分
     P2 &= 0xE3; // 清除第2、3、4位 
     P0 = 0x00; // 清除段选
