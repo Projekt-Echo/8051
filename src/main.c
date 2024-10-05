@@ -11,10 +11,12 @@
 
 #include <reg52.h>
 #include <stdio.h>
-    
+
+// Main函数
 void main(void) {
-    Timer0_Init(); // 初始化定时器
+    Timer0_Init(); // 初始化定时器0
     while (1) {
-        Display_Time(); // 刷新显示
+        Key_Scan(); // 按键扫描
+        Update_Display(); // 更新数码管显示
     }
 }

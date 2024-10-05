@@ -12,6 +12,7 @@ Parameters:
 void display(int position, int number) {
     // 清除数码管位置相关的引脚 - 消影的一部分
     P2 &= 0xE3; // 清除第2、3、4位
+    P0 = 0x00; // 清除段选
     
     // 位选
     // 使用位操作优化数码管位置设置
@@ -34,19 +35,25 @@ void display(int position, int number) {
         default: P0 = 0x00; break; // 默认清除显示 
     }
 
-    // 消影
-    delay(32);
+    delay(1); // 延时1ms
     // 清除数码管位置相关的引脚 - 消影的一部分
     P2 &= 0xE3; // 清除第2、3、4位 
+    P0 = 0x00; // 清除段选
 }
 
-void Display_Time(void) {
+// 更新数码管显示函数
+/*
+Author: Shiro1sa
+Date: 2024-10-04
+Description: 更新数码管显示函数
+*/
+void Update_Display(void) {
     display(7, hours / 10);
     display(6, hours % 10);
-    display(5, 10); // 显示减号
+    display(5, 10); // 显示分隔符 "-"
     display(4, minutes / 10);
     display(3, minutes % 10);
-    display(2, 10); // 显示减号
+    display(2, 10); // 显示分隔符 "-"
     display(1, seconds / 10);
     display(0, seconds % 10);
 }

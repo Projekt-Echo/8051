@@ -20,3 +20,24 @@ unsigned char isKeyPressed(__sbit Key) {
     }
     return 0; // 按键未被按下
 }
+
+// 按键扫描函数
+/*
+Author: Shiro1sa
+Date: 2024-10-04
+Description: 按键扫描函数
+*/
+void Key_Scan(void) {
+    if (isKeyPressed(Key_Start)) {
+        running = 1; // 开始秒表
+    }
+    if (isKeyPressed(Key_Pause)) {
+        running = 0; // 暂停秒表
+    }
+    if (isKeyPressed(Key_Reset)) {
+        running = 0; // 暂停秒表
+        seconds = 0;
+        minutes = 0;
+        hours = 0; // 清零时间
+    }
+}

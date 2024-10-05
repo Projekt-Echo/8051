@@ -4,10 +4,8 @@ unsigned int milliseconds = 0;
 unsigned char seconds = 0;
 unsigned char minutes = 0;
 unsigned char hours = 0;
-__bit running = 0; // 秒表运行状态
-
+unsigned char running = 0; // 秒表运行状态
 unsigned int timer_count = 0; // 定义计数器变量
-
 
 // 定时器初始化
 /*
