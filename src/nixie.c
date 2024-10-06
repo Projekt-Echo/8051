@@ -17,26 +17,10 @@ Parameters:
 void display(int position, int number) {
     P0 = 0x00; // 清除段选
 
-    // 处理虚位
-    if (position == 8) {
-        P24 = 1;
-        P23 = 1;
-        P22 = 1;
-    } else {
-        position = 7 - position; // 反转位置
-
         // 位选
-        switch (position) {
-            case 0: P24 = 1; P23 = 1; P22 = 1; break;
-            case 1: P24 = 1; P23 = 1; P22 = 0; break;
-            case 2: P24 = 1; P23 = 0; P22 = 1; break;
-            case 3: P24 = 1; P23 = 0; P22 = 0; break;
-            case 4: P24 = 0; P23 = 1; P22 = 1; break;
-            case 5: P24 = 0; P23 = 1; P22 = 0; break;
-            case 6: P24 = 0; P23 = 0; P22 = 1; break;
-            case 7: P24 = 0; P23 = 0; P22 = 0; break;
-        }
-    }
+        P24 = (position & 0x04) >> 2;
+        P23 = (position & 0x02) >> 1;
+        P22 = position & 0x01;
 
     // 段选
     if (number >= 0 && number <= 10) {

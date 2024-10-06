@@ -102,6 +102,7 @@ __sfr __at(0x99) SBUF;
 
 /*  8052 Extensions  */
 __sfr __at(0xC8) T2CON;
+__sfr __at(0xC9) T2MOD;
 __sfr __at(0xCA) RCAP2L;
 __sfr __at(0xCB) RCAP2H;
 __sfr __at(0xCC) TL2;

@@ -11,8 +11,6 @@ Parameters:
 unsigned char isKeyPressed(__sbit Key) {
     // 按键按下时，Key 引脚为低电平
     if (Key == 0) {
-        // 消抖延时
-        delay_0_1ms(300);
         // 再次检查按键状态，确保按键确实被按下
         if (Key == 0) {
             return 1; // 按键被按下
@@ -38,13 +36,11 @@ void Key_Scan(void) {
 
     if (currentKeyStartState && lastKeyStartState == 1) {
         running = 1; // 开始秒表
-        UART_Send('s');
     }
     lastKeyStartState = currentKeyStartState;
 
     if (currentKeyPauseState && lastKeyPauseState == 1) {
         running = 0; // 暂停秒表
-        UART_Send('p');
     }
     lastKeyPauseState = currentKeyPauseState;
 
@@ -53,7 +49,6 @@ void Key_Scan(void) {
         milliseconds = 0;
         seconds = 0;
         minutes = 0; // 清零时间
-        UART_Send('r');
     }
     lastKeyResetState = currentKeyResetState;
 }

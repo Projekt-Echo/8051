@@ -21,6 +21,10 @@ extern unsigned char minutes;
 extern unsigned char hours;
 extern unsigned char running;
 
+// 定义标志位
+extern bit flag_10ms; // 10ms 标志
+extern bit flag_1ms;  // 1ms 标志
+extern bit flag_button; // 按键扫描标志
 // Debug
 extern void UART_Init(void);
 extern void UART_Send(unsigned char d);
