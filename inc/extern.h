@@ -2,6 +2,7 @@
 // 定义外部函数接口
 
 extern void delay(unsigned int ms);
+extern void delay_ms(unsigned int ms);
 extern void delay_0_1ms(unsigned int n);
 extern void Timer0_Init(void);
 extern void Timer0_ISR(void) __interrupt(1);

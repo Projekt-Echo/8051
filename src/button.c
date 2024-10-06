@@ -12,7 +12,7 @@ unsigned char isKeyPressed(__sbit Key) {
     // 按键按下时，Key 引脚为低电平
     if (Key == 0) {
         // 消抖延时
-        delay(30);
+        delay_0_1ms(300);
         // 再次检查按键状态，确保按键确实被按下
         if (Key == 0) {
             return 1; // 按键被按下

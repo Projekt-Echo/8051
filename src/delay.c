@@ -9,6 +9,13 @@ void delay(unsigned int ms) {
 }
 
 // 0.1ms延时函数
+/*
+Author: Shiro1sa
+Date: 2024-10-05
+Description: 0.1ms延时函数
+Parameters: 
+    n: 延时时间，单位0.1ms
+*/
 void delay_0_1ms(unsigned int n) {
     unsigned int i;
     for (i = 0; i < n; i++) {
