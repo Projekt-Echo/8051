@@ -2,8 +2,6 @@
 // 定义外部函数接口
 
 extern void delay(unsigned int ms);
-extern void delay_ms(unsigned int ms);
-extern void delay_0_1ms(unsigned int n);
 extern void Timer0_Init(void);
 extern void Timer0_ISR(void) __interrupt(1);
 extern void Key_Scan(void);
@@ -27,5 +25,20 @@ extern bit flag_1ms;  // 1ms 标志
 extern bit flag_button; // 按键扫描标志
 // Debug
 extern void UART_Init(void);
-extern void UART_Send(unsigned char d);
+extern void UART_Send(unsigned char d); 
 extern unsigned char UART_Receive(void);
+
+
+#ifndef __LCD1602_H__
+#define __LCD1602_H__
+
+extern void LCD_Delay();
+extern void LCD_Init();
+extern void LCD_ShowChar(unsigned char Line, unsigned char Column, char Char);
+extern void LCD_ShowString(unsigned char Line, unsigned char Column, char *String);
+extern void LCD_ShowNum(unsigned char Line, unsigned char Column, unsigned int Number, unsigned char Length);
+extern void LCD_ShowSignedNum(unsigned char Line, unsigned char Column, int Number, unsigned char Length);
+extern void LCD_ShowHexNum(unsigned char Line, unsigned char Column, unsigned int Number, unsigned char Length);
+extern void LCD_ShowBinNum(unsigned char Line, unsigned char Column, unsigned int Number, unsigned char Length);
+
+#endif

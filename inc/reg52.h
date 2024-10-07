@@ -180,6 +180,8 @@ __sbit __at(0xca) TR2;
 __sbit __at(0xc9) C_T2;
 __sbit __at(0xc8) CP_RL2;
 
+__sfr __at (0x8E) AUXR;  // 定义 AUXR 寄存器
+
 
 // 定义操作引脚的宏，便于操作每一个引脚
 #define SET_PIN(port, pin) (port |= (1 << pin))  // 设置某一引脚为高电平

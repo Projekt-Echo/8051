@@ -1,20 +1,32 @@
-/*************************************
- * 
- *        89c52 sdcc blink demo
- * 
- * CPU: 89C52
- * FREQ: 11.0592MHz //失准
- * PIN: P00
- * 
- * ***********************************
-*/
+#include<reg52.h>
 
-#include <reg52.h>
-#include <stdio.h>
+void Update_Display_LCD(void){
+    
+    unsigned char min1, min2, sec1, sec2, ms1, ms2;
+    // 更新数码管
+    min1 = minutes/10;
+    min2 = minutes%10;
+    sec1 = seconds/10;
+    sec2 = seconds%10;
+    ms1 = milliseconds/10;
+    ms2 = milliseconds%10;
+    LCD_ShowChar(1, 1, '0');
+    LCD_ShowChar(1, 2, '0');
+    LCD_ShowChar(1, 3, '-');
+    LCD_ShowChar(1, 4, '0');
+    LCD_ShowChar(1, 5, '0');
+    LCD_ShowChar(1, 6, '-');
+    LCD_ShowChar(1, 7, '0');
+    LCD_ShowChar(1, 8, '0');
 
-// Main函数
+}
+
+
+
 void main(void) {
-    Timer0_Init(); // 初始化定时器0
+    LCD_Init();
+    Timer0_Init();
+
     while (1) { // 主循环
         if (flag_10ms) { // 10ms标志，计时
             flag_10ms = 0;
@@ -23,8 +35,7 @@ void main(void) {
         
         if (flag_1ms) { // 1ms标志，更新数码管
             flag_1ms = 0;
-            Nixie_Buffer_Setter();
-            Update_Display();
+            Update_Display_LCD();
         }
         
         if (flag_button) { // 按键扫描标志，扫描按键
