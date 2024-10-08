@@ -13,12 +13,12 @@ Date: 2024-10-03
 Description: 初始化Timer0
 Parameters: None
 */
-void Timer0_Init(void)		//1000微秒@11.0592MHz
+void Timer0_Init(void)		//10000微秒@11.0592MHz
 {
 	TMOD &= 0xF0;		//设置定时器模式
 	TMOD |= 0x01;		//设置定时器模式
-	TL0 = 0x06;		//设置定时初值
-	TH0 = 0xFC;		//设置定时初值
+	TL0 = 0x00;		//设置定时初值
+	TH0 = 0xDC;		//设置定时初值
 	TF0 = 0;		//清除TF0标志
 	TR0 = 1;		//定时器0开始计时
 	ET0=1;
