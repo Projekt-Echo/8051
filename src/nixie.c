@@ -17,10 +17,8 @@ Parameters:
 void display(int position, int number) {
     P0 = 0x00; // 清除段选
 
-        // 位选
-        P24 = (position & 0x04) >> 2;
-        P23 = (position & 0x02) >> 1;
-        P22 = position & 0x01;
+    // 位选
+    P2 = (P2 & 0xE3) | ((position & 0x07) << 2);
 
     // 段选
     if (number >= 0 && number <= 10) {

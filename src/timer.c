@@ -1,6 +1,6 @@
 #include "reg52.h"
 
-unsigned int milliseconds = 0;
+unsigned char milliseconds = 0;
 unsigned char seconds = 0;
 unsigned char minutes = 0;
 unsigned char running = 0; // 秒表初始运行状态
